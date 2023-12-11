@@ -1,0 +1,134 @@
+:root {
+  --main-bg-color: #2b0034;
+  --row-border-color: #d1eff1;
+  --box-bg-color: #0e005e;
+  --scrollbar-thumb-color: #f600ff;
+  --rows-bg-color: #b47ebf;
+  --container-bg-color: #3d0848;
+  --scrollbar-track-color: #19031e;
+  --box-scrollbar-track-color: #060028;
+  --status-text-color: #fff;
+  --scrollbar-width: 17px;
+  --container-width: 420px;
+  --container-height: 568px;
+  --box-width: 280px;
+  --box-height: 200px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background: var(--container-bg-color);
+  min-height: 100vh;
+  font-family: monospace;
+}
+
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--scrollbar-track-color);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 5px solid transparent;
+  border-radius: 100px;
+  background-color: var(--scrollbar-thumb-color);
+  background-clip: content-box;
+}
+
+.container {
+  width: var(--container-width);
+  height: var(--container-height);
+  margin: 0 4rem;
+  padding: 2rem 1rem;
+  background: var(--main-bg-color);
+  border-radius: 10px;
+  overflow-y: auto;
+  position: relative;
+
+  .first-row {
+    width: 75%;
+  }
+
+  .rows {
+    display: inline-block;
+    width: 20%;
+    height: 12px;
+    margin: 7px 6px;
+    border-radius: 1em;
+    background: var(--rows-bg-color);
+
+    &:nth-child(2n) {
+      width: 25%;
+    }
+    &:nth-child(3n) {
+      width: 15%;
+    }
+    &:nth-child(4n) {
+      width: 25%;
+    }
+    &:nth-child(5n) {
+      width: 40%;
+    }
+  }
+}
+
+.box {
+  width: var(--box-width);
+  height: var(--box-height);
+  border-radius: 10px;
+  padding: 1rem 0.5rem;
+  background: var(--box-bg-color);
+  border: 3px solid var(--row-border-color);
+  position: absolute;
+  top: 210px;
+  right: 20px;
+  overflow-y: auto;
+
+  .rows {
+    background: var(
+      --status-text-color
+    ); /* Changed to variable */
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: var(--box-scrollbar-track-color);
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border: 5px solid transparent;
+    border-radius: 100px;
+    background-color: var(--scrollbar-thumb-color);
+    background-clip: content-box;
+  }
+}
+
+.status {
+  color: var(--status-text-color);
+  font-weight: bold;
+}
+
+.status {
+  & p {
+    display: flex;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+  }
+
+  & span {
+    width: 95%;
+    margin-right: 25px;
+  }
+}
