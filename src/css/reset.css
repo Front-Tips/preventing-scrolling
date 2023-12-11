@@ -97,9 +97,7 @@ body {
   overflow-y: auto;
 
   .rows {
-    background: var(
-      --status-text-color
-    ); /* Changed to variable */
+    background: var(--status-text-color);
   }
 
   &::-webkit-scrollbar-track {
